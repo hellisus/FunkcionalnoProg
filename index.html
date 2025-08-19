@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktivni cenovnik - Funkcionalno Programiranje</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🛒 Interaktivni cenovnik</h1>
+        
+        <div class="controls">
+            <button id="prikažiSve">Prikaži sve proizvode</button>
+            <button id="prikažiSkupo">Proizvodi preko 10000 din</button>
+            <button id="prikažiJeftino">Proizvodi ispod 500 din</button>
+            <button id="sortByName">Sortiraj po nazivu</button>
+            <button id="sortByPrice">Sortiraj po ceni</button>
+            <button id="calculateTotal">Ukupna vrednost</button>
+            <button id="showCategories">Kategorije proizvoda</button>
+            <button id="recursiveTotal">Rekurzivna suma</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Ukupno proizvoda</h3>
+                <p id="totalProducts">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Ukupna vrednost</h3>
+                <p id="totalValue">0 din</p>
+            </div>
+            <div class="stat-card">
+                <h3>Prosečna cena</h3>
+                <p id="averagePrice">0 din</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="products-container">
+                <h2>Proizvodi</h2>
+                <div id="productsList"></div>
+            </div>
+
+            <div class="console-output">
+                <h3>Konzola (Prikaz aktivnosti)</h3>
+                <div id="konzolaDivProzor"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
