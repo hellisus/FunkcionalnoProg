@@ -43,6 +43,33 @@ const sortProducts = (items, sortBy) => {
     });
 };
 
+// 4.1 ADVANCED LAMBDA EXPRESSIONS WITH CONTROL STRUCTURES
+// Lambda sa ternarnim operatorom
+const getPriceCategory = (price) => 
+    price < 1000 ? 'Jeftino' : 
+    price < 10000 ? 'Srednje' : 
+    price < 50000 ? 'Skupo' : 'Luksuzno';
+
+// Lambda sa switch strukturom
+const getShippingCost = (region) => 
+    (() => {
+        switch (region.toLowerCase()) {
+            case 'beograd':
+                return 300;
+            case 'novi sad':
+                return 400;
+            case 'nis':
+                return 500;
+            case 'kragujevac':
+                return 450;
+            default:
+                return 600;
+        }
+    })();
+
+
+
+
 // 5. RECURSION
 // Rekurzivna funkcija za računanje ukupne vrednosti proizvoda
 const calculateTotalRecursive = (items, index = 0) => {
@@ -193,6 +220,25 @@ const addEventListeners = () => {
                 const count = countByCategoryRecursive(products, cat);
                 konzolaLog(`  ${cat}: ${count} proizvoda`);
             });
+        },
+        
+        // Lambda izrazi sa kontrolnim strukturama
+        'testPriceCategory': () => {
+            konzolaLog('Kategorije cena');
+            products.forEach(product => {
+                const category = getPriceCategory(product.price);
+                konzolaLog(`${product.name}: ${formatPrice(product.price)} → ${category}`);
+            });
+        },
+        
+        'testShipping': () => {
+            konzolaLog('Troškovi dostave');
+            const regions = ['Beograd', 'Novi Sad', 'Niš', 'Kragujevac', 'Subotica'];
+            
+            regions.forEach(region => {
+                const shippingCost = getShippingCost(region);
+                konzolaLog(`Dostava u ${region}: ${formatPrice(shippingCost)}`);
+            });
         }
     };
 
@@ -218,6 +264,8 @@ const demonstracijaHighOrderFunkcije = () => {
         konzolaLog(`  ${item.name}: ${formatPrice(item.price)} → ${formatPrice(item.priceWithTax)}`);
     });
 };
+
+
 
 // Inicijalizacija aplikacije
 document.addEventListener('DOMContentLoaded', () => {
